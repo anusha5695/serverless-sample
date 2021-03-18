@@ -1,0 +1,19 @@
+{
+  "name": "serverless-sample",
+  "version": "1.0.0",
+  "description": "sample project",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anusha5695/serverless-sample.git"
+  },
+  "author": "Anusha S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anusha5695/serverless-sample/issues"
+  },
+  "homepage": "https://github.com/anusha5695/serverless-sample#readme"
+}
