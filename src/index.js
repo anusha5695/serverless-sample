@@ -1,14 +1,11 @@
-const http = require('http');
+const transform = (sourceStructure) => {
+  console.log("Source structure:", JSON.stringify(sourceStructure) );
+  transformedStructure = {
+    ...sourceStructure,
+    transformed: true,    
+ } 
+ console.log("Transformed structure:", JSON.stringify(transformedStructure));
+  return transformedStructure;
+};
 
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Transforming your data');
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+transform({name: 'sample', age: 15});
