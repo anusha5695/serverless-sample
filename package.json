@@ -4,7 +4,8 @@
   "description": "sample project",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node -e 'require(\"./src/index.js\").transform({\"a\":5})'",
+    "test": "jest test/*"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/anusha5695/serverless-sample#readme",
   "dependencies": {
+    "jest": "^26.6.3",
     "serverless": "^2.30.3"
   }
 }

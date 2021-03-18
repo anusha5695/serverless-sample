@@ -8,4 +8,8 @@ const transform = (sourceStructure) => {
   return transformedStructure;
 };
 
-transform({name: 'sample', age: 15});
+module.exports = {
+    transform: transform
+};
+
+
