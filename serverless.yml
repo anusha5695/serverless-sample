@@ -1,0 +1,12 @@
+service: loan-service
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  listUsers:
+    handler: src/user.get
+    events:
+      - http: 
+          path: users
+          method: GET
