@@ -25,3 +25,14 @@ jobs:
       run: yarn install --frozen-lockfile
     - name: Tests
       run: yarn test
+  deploy:
+    name: "Deploy the application"
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Checkout project 
+      uses: actions/checkout@v2
+    - name: Install packages
+      run: yarn install --frozen-lockfile
+    - name: Serverless deploy 
+      run: npx serverless deploy
