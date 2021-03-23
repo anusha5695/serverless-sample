@@ -1,0 +1,33 @@
+name: Pipeline2
+on:
+  workflow_run:
+    workflows: [ "Transformation Pipeline" ]
+    branches: [ main ]
+    types:
+      - completed
+
+jobs:
+  build:
+    if: ${{ github.event_name == 'push' }}
+    name: "Build the application"
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v2
+    - name: Install Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    - name: Tests
+      run: yarn test
+    - name: echo run id
+      run:  echo ${{ github.run_id }}
+    - name: echo workflow run
+      run:  echo ${{ github.event.workflow_run }}
