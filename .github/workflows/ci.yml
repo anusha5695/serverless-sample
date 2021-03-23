@@ -4,7 +4,6 @@ on:
     inputs:
     name:
       description: 'Person to greet'
-      required: true
       default: 'Mona the Octocat'
   push:
     branches: ["master"]
@@ -43,11 +42,12 @@ jobs:
   deploy:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     name: "Deploy the application"
-    needs: [build]
     runs-on: ubuntu-latest
     steps: 
     - name: Checkout project 
       uses: actions/checkout@v2
+    - name: cat build id
+      run: echo ${{ github.run_id }}
     - name: Download a single artifact
       uses: actions/download-artifact@v2
       with:
