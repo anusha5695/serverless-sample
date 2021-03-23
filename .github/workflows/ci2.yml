@@ -1,0 +1,22 @@
+name: Transformation1 Pipeline
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  build:
+    if: ${{ github.event_name == 'push' }}
+    name: "Build the application"
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v2
+    - name: create file
+      run:  echo ${{ github.run_id }}

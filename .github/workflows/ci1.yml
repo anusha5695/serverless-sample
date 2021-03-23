@@ -1,7 +1,7 @@
 name: Pipeline2
 on:
   workflow_run:
-    workflows: [ "Transformation Pipeline" ]
+    workflows: [ "Transformation1 Pipeline" ]
     branches: [ main ]
     types:
       - completed
